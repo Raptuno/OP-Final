@@ -81,6 +81,7 @@ public class Main { //Por qué Eclipse marca esta parte como instrucción perdid
 				System.out.println("Archivo creado con éxito");
 				cha.put("Nombre", player.Nombre);
 				cha.put("Arma", player.Arma);
+				cha.put("Poder", player.swords.get(Integer.parseInt(player.Arma)));
 				
 				FileOutputStream writer=new FileOutputStream(saveSlot);
 				ObjectOutputStream getch=new ObjectOutputStream(writer);
