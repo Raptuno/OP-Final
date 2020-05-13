@@ -24,7 +24,7 @@ public class Mago {
 	public int Bolso; //Bolso de hadas del mago
 	public String Nombre="Drelas"; //Nombre del mago. Tomé el nombre prestado de un NPC en Skyrim
 	public int Poder=fetch.nextInt(10)+1; //Fuerza de ataque del mago
-	public int Vida=fetch.nextInt(100)+1; //Vida del mago
+	public int Vida=100; //Vida del mago
 
 	public Mago(){
 		
@@ -73,8 +73,12 @@ public class Mago {
 			setPoder(getPoder()+1);
 		}
 	}
+	
+	public void cure() {
+		setVida(getVida()+3);
+	}
 
 	public void proxyOgre(){ //Ordenar ataques al ogro
-		
+		Heroe.setVida(Heroe.getVida()-1);
 	}
 }//end Mago

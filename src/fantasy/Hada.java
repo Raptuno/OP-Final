@@ -1,5 +1,5 @@
 package fantasy;
-import java.util.Random;
+import java.util.*;
 
 /**
  * @author Alejandro Nieto (Gen. de plantillas Java)
@@ -19,7 +19,9 @@ public class Hada {
 			"Aerwyna",
 			"Tania",
 			"Tatiana",
-			"Xylia"}; //Algunos nombres fueron tomados de Terraria
+			"Xylia"}; //Algunos nombres fueron tomados de Terraria (NPC Dríada)
+	Vector<String> usedNames=new Vector<String>();
+	
 	public String Nombre;
 	public Villa Villa;
 	public Heroe Heroe;
@@ -30,8 +32,23 @@ public class Hada {
 		
 	}
 	
+	public String getName() {
+		return this.Nombre;
+	}
+	
+	public void setName(String Nombre) {
+		this.Nombre=Nombre;
+	}
+	
 	public void namer(String[] fairyNames) {
-		Nombre=fairyNames[r.nextInt(fairyNames.length)+1];
+		for(int i=0; i<fairyNames.length;) {
+			if (usedNames.equals(fairyNames[i])) {
+				i++;
+				setName(fairyNames[i+1]);
+			} else {
+				setName(fairyNames[i]);
+			}
+		}
 	}
 	
 	public void captura(){ //Ser capturada
@@ -45,6 +62,8 @@ public class Hada {
 	}
 
 	public void Volar(){
-		
+		for(int i=0; i<2; i++) {
+			
+		}
 	}
 }//end Hada

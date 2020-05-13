@@ -17,7 +17,7 @@ public class Heroe {
 	
 	public String Arma; //Arma a usar.
 	public String Nombre=""; //Nombre. Está a elección del usuario
-	public int Poder=r.nextInt(11); //Poder de ataque. Se encuentra en una escala del uno al diez considerando una vida inicial de 100 HP
+	int Poder=r.nextInt(11); //Poder de ataque. Se encuentra en una escala del uno al diez considerando una vida inicial de 100 HP
 	public int Vida=100;
 	public int Ataque=0;
 	
@@ -107,7 +107,7 @@ public class Heroe {
 	}
 
 	public void Defender(){ //Defenderse de los ataques del ogro
-		
+		villano.setVida(villano.getVida()+1);
 	}
 
 	public void Salvar(){ //Robarle hadas al villano (Mago)

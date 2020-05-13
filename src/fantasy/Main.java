@@ -9,6 +9,8 @@ import java.util.*;
 
 public class Main { //Por qué Eclipse marca esta parte como instrucción perdida?
 	
+	public String loopC="S";
+	
 	static Ogro Shrek=new Ogro();
 	static Heroe player=new Heroe();
 	static Mago villano=new Mago();
@@ -31,6 +33,7 @@ public class Main { //Por qué Eclipse marca esta parte como instrucción perdid
 					+" simplemente no aprende que no debe estar secuestrando hadas. "
 					+"\n¡Ya hasta se consigió otro ogro, ¿cómo ves?!"
 					+"\nPor supuesto debes derrotarlo otra vez, pero personalmente no creo que aprenda..."
+					+"\n\nTu fuerza de ataque: "+player.getPoder()
 					);
 			
 			if (saveSlot.length()>0) {
@@ -40,6 +43,7 @@ public class Main { //Por qué Eclipse marca esta parte como instrucción perdid
 					cha=(Hashtable<String, String>) sniffer.readObject();
 					sniffer.close();
 					reader.close();
+					System.out.println(cha);
 				} catch (Exception e) {
 					System.out.println(
 							"Algo raro acaba de pasar."
@@ -107,9 +111,7 @@ public class Main { //Por qué Eclipse marca esta parte como instrucción perdid
 		System.out.println();
 		chSave();
 		
-		String loopC="S";
-		
-		while(loopC=="S"||loopC=="s") {
+		while(match.looper.equalsIgnoreCase("Sí")||match.looper.equalsIgnoreCase("Si")) {
 			match.gameOn();
 		}
 	}

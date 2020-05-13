@@ -11,13 +11,17 @@ public class Ogro {
 	
 	Random r=new Random();
 	public int Nombre; 
-	public int Poder=r.nextInt(10)+1;
 	public int Vida;
 	public Mago villano;
 	public Heroe Heroe;
+	public int Poder=10;
 
 	public Ogro(){
 
+	}
+	
+	public int getPoder() {
+		return this.Poder;
 	}
 
 	public void Ataque(){ //Atacar al h�roe
