@@ -42,14 +42,14 @@ public class Heroe {
 				+"\n\tKatana ("+swords.get("Katana")+" puntos de daño)"
 				+"\n\tCimitarra ("+swords.get("Cimitarra")+" puntos de daño)"
 				+"\n\tMandoble ("+swords.get("Mabdoble")+" puntos de daño)"
-				+"\n¿Cuál quieres, lanza, katana, cimiktarra o mandoble? ");
+				+"\n¿Cuál quieres, lanza, katana, cimitarra o mandoble? ");
 		
 		BufferedReader pick=new BufferedReader(new InputStreamReader(System.in));
-		String picker=pick.readLine();
+		String picker=pick.readLine().toLowerCase();
 		switch (picker) {
 		case "lanza":
 			Arma="Lanza de obsidiana";
-			Ataque=Integer.parseInt(swords.get("Lanza de obsidiana"));
+			setPoder(Integer.parseInt(swords.get("Lanza")));
 			break;
 		case "katana":
 			Arma="Katana";

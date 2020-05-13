@@ -59,6 +59,7 @@ public class Main { //Por qué Eclipse marca esta parte como instrucción perdid
 					
 					cha.put("Nombre", player.Nombre);
 					cha.put("Arma", player.Arma);
+					cha.put("Poder", player.swords.get(Integer.parseInt(player.Arma)));
 					
 					getch.writeObject(cha);
 					getch.close();
