@@ -6,3 +6,5 @@
  Para publicar los cambios que se hagan, descarguen el cliente de escritorio de github en https://desktop.github.com y conecten su cuenta. Después de instalarlo, vayan a la pestaña Changes del repositorio activo, Escriban algo en Summary de ser necesario, den clic en Commit to master y después de eso el botón fetch origin se convertirá en push to origin o algo así. Denle clic para que se carguen los cambios a GitHub
  
  No olviden editar el archivo .gitignore para agregar los archivos de datos de cada jugador
+ 
+ La rama isolate es para probar código fuente
