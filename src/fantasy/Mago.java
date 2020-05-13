@@ -6,8 +6,8 @@ import java.util.Random;
  * @author Alfonso Sánchez (Prog. en Java)
  * @version 1.0
  * @created 06-may.-2020 07:22:45 a. m.
- * Erick Benjam�n Glez. hizo la programaci�n en Python
- * C�digo grapa del randomizer con rango: 
+ * Erick Benjamín Glez. hizo la programación en Python
+ * Código grapa del randomizer con rango: 
  * {@code
  * import java.util.Random; //Después de declarar del paquete
  * Random randomVarName=new Random(); //Al principio de la clase

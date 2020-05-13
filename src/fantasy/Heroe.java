@@ -4,8 +4,8 @@ import java.util.*;
 import java.util.Random;
 
 /**
- * @author Alejandro Nieto (Gen. de plantillas Java)
- * @author Alfonso Sánchez (Prog. en Java)
+ * @author Alejandro Nieto (Co-programador Java)
+ * @author Alfonso Sánchez (Co-programador Java)
  * @version 1.0
  * @created 06-may.-2020 07:22:52 a. m.
  */

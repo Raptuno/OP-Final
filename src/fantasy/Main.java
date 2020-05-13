@@ -20,7 +20,7 @@ public class Main { //Por qué Eclipse marca esta parte como instrucción perdid
 	static Object inputter=new Object();
 	static Hashtable<String, String>cha=new Hashtable<>();
 	
-	public static void chSave() {
+	public static void chSave() { // Lo que hace esta función es guardar y cargar información del héroe al programa
 		File saveSlot=new File(player.Nombre+".txt");
 		
 		if(saveSlot.exists()) {
@@ -37,7 +37,6 @@ public class Main { //Por qué Eclipse marca esta parte como instrucción perdid
 				try {
 					FileInputStream reader=new FileInputStream(saveSlot);
 					ObjectInputStream sniffer=new ObjectInputStream(reader);
-					
 					cha=(Hashtable<String, String>) sniffer.readObject();
 					sniffer.close();
 					reader.close();

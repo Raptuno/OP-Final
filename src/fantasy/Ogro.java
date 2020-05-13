@@ -6,7 +6,6 @@ import java.util.Random;
  * @author Raptuno
  * @version 1.0
  * @created 06-may.-2020 07:22:54 a. m.
- * C�digo grapa del randomizer con rango: {@code: type varName=randomVarName.nextInt(x)+1}
  */
 public class Ogro {
 	
