@@ -110,10 +110,10 @@ public class Game{
 			}
 			System.out.println("¿Jugar de nuevo? ");
 			looper=play.readLine();
-			if (looper.equalsIgnoreCase("")) {
+			if (looper.equalsIgnoreCase("Sí")||looper.equalsIgnoreCase("Si")) {
 				
 			} else {
-				
+				break;
 			}
 		}
 		switch(gameOverStatus) {
