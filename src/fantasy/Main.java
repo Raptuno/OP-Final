@@ -9,6 +9,7 @@ import java.util.*;
 
 public class Main { //Por qué Eclipse marca esta parte como instrucción perdida?
 	
+	public int lifeLimiter=100;
 	public String loopC="S";
 	
 	static Ogro Shrek=new Ogro();
@@ -18,11 +19,10 @@ public class Main { //Por qué Eclipse marca esta parte como instrucción perdid
 	static Villa dland=new Villa();
 	static Game match=new Game();
 	
-	static boolean fileFound=false;
 	static Object inputter=new Object();
 	static Hashtable<String, String>cha=new Hashtable<>();
 	
-	public static void chSave() { // Lo que hace esta función es guardar y cargar información del héroe al programa
+	/*public static void chSave() { // Lo que hace esta función es guardar y cargar información del héroe al programa
 		File saveSlot=new File(player.Nombre+".txt");
 		
 		if(saveSlot.exists()) {
@@ -56,10 +56,9 @@ public class Main { //Por qué Eclipse marca esta parte como instrucción perdid
 					ObjectOutputStream getch=new ObjectOutputStream(writer);
 					
 					player.swordPick(player.swords);
-					
 					cha.put("Nombre", player.Nombre);
 					cha.put("Arma", player.Arma);
-					cha.put("Poder", player.swords.get(Integer.parseInt(player.Arma)));
+					cha.put("Daño", Integer.toString(player.Ataque));
 					
 					getch.writeObject(cha);
 					getch.close();
@@ -81,7 +80,6 @@ public class Main { //Por qué Eclipse marca esta parte como instrucción perdid
 				System.out.println("Archivo creado con éxito");
 				cha.put("Nombre", player.Nombre);
 				cha.put("Arma", player.Arma);
-				cha.put("Poder", player.swords.get(Integer.parseInt(player.Arma)));
 				
 				FileOutputStream writer=new FileOutputStream(saveSlot);
 				ObjectOutputStream getch=new ObjectOutputStream(writer);
@@ -95,11 +93,13 @@ public class Main { //Por qué Eclipse marca esta parte como instrucción perdid
 			}
 		}
 	}
+	*/
 	
 	public static void main(String[] args)throws IOException, ClassNotFoundException {
 		BufferedReader baptism=new BufferedReader(new InputStreamReader(System.in));
 		
 		villano.setBolso(tbell.fairyNames.length); //Decidí inicializar el valor del bolso en el método main porque intentar hacerlo en la clase Mago llamando a .length en fairyNames (Clase Hada) arrojaba NullPointerException
+		System.out.println(villano.Bolso);
 		
 		System.out.print("¡Necesitamos tu ayuda!"
 				+"\nEl malvado "+villano.Nombre+" ha capturado a "
@@ -111,7 +111,7 @@ public class Main { //Por qué Eclipse marca esta parte como instrucción perdid
 		System.out.print("\n\nPero antes de que partamos, ¿cómo te llamas? ");
 		player.Nombre=baptism.readLine();
 		System.out.println();
-		chSave();
+		//chSave();
 		
 		while(match.looper.equalsIgnoreCase("Sí")||match.looper.equalsIgnoreCase("Si")) {
 			match.gameOn();

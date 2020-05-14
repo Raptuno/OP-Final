@@ -3,7 +3,7 @@ package fantasy;
 
 /**
  * @author gordi (Alejandro Nieto)
- * @author Raptuno (Alfonso S�nchez)
+ * @author Raptuno (Alfonso Sánchez)
  * @version 1.0
  * @created 06-may.-2020 07:21:03 a. m.
  */
