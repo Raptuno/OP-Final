@@ -23,6 +23,14 @@ public class Ogro {
 	public int getPoder() {
 		return this.Poder;
 	}
+	
+	public int getVida() {
+		return this.Vida;
+	}
+	
+	public void setVida(int Vida) {
+		this.Vida=Vida;
+	}
 
 	public void Ataque(){ //Atacar al h�roe
 		Heroe.setVida(Heroe.getVida()-Poder);

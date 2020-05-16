@@ -10,7 +10,7 @@ import java.util.*;
 public class Hada {
 	
 	Random r=new Random();
-	public String[] fairyNames= {
+	/*public String[] fairyNames= {
 			"Celestia",
 			"Asteria",
 			"Isis",
@@ -20,11 +20,12 @@ public class Hada {
 			"Tania",
 			"Tatiana",
 			"Xylia"}; //Algunos nombres fueron tomados de Terraria (NPC Dríada)
-	Vector<String> usedNames=new Vector<String>();
+			*/
 	
-	public String Nombre;
+	//public String Nombre;
 	public Villa Villa;
-	public Heroe Heroe;
+	public Heroe Heroe=new Heroe();
+	public Main handler=new Main();
 	Mago villano=new Mago();
 	
 	
@@ -32,7 +33,7 @@ public class Hada {
 		
 	}
 	
-	public String getName() {
+	/*public String getName() {
 		return this.Nombre;
 	}
 	
@@ -41,24 +42,19 @@ public class Hada {
 	}
 	
 	public void namer(String[] fairyNames) {
-		for(int i=0; i<fairyNames.length;) {
-			if (usedNames.equals(fairyNames[i])) {
-				i++;
-				setName(fairyNames[i+1]);
-			} else {
-				setName(fairyNames[i]);
-			}
+		for(int i=0; i<fairyNames.length; i++) {
+			setName(fairyNames[i]);
 		}
-	}
+	}*/
 	
 	public void captura(){ //Ser capturada
 		villano.setBolso(villano.getBolso()+1);
 	}
 
 	public void salve(){ //Ser salvada
-		Heroe.Salvar();
-		namer(fairyNames);
-		System.out.println(Nombre+": ¡Gracias, forastero!");
+		//namer(fairyNames);
+		villano.setBolso(villano.getBolso()-1);
+		System.out.println("Hada: ¡Gracias, "+handler.Nombre+"!");
 	}
 
 	public void Volar(){

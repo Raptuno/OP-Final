@@ -16,13 +16,12 @@ public class Heroe {
 	public int lifeLimiter=100;
 	
 	public String Arma; //Arma a usar.
-	public String Nombre=""; //Nombre. Está a elección del usuario
 	public int Poder=10; //Fuerza del jugador. Estás establecida en 10 considerando un tope de 100 HP.
 	public int Vida=100;
 	public int Ataque;
 	
 	public Hada Hada;
-	public Mago villano;
+	public Mago villano=new Mago();
 	public Ogro Ogro;
 	public Villa Villa;
 	
@@ -68,6 +67,7 @@ public class Heroe {
 	*/
 	
 	//Inicia Declaración Getters/Setters
+	
 	public int getPoder() {
 		return this.Poder;
 	}
@@ -108,9 +108,5 @@ public class Heroe {
 
 	public void Defender(){ //Defenderse de los ataques del ogro
 		villano.setVida(villano.getVida()+1);
-	}
-
-	public void Salvar(){ //Robarle hadas al villano (Mago)
-		villano.setBolso(villano.getBolso()-1);
 	}
 }//end Heroe

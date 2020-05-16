@@ -19,8 +19,11 @@ public class Main { //Por qué Eclipse marca esta parte como instrucción perdid
 	static Villa dland=new Villa();
 	static Game match=new Game();
 	
-	static Object inputter=new Object();
-	static Hashtable<String, String>cha=new Hashtable<>();
+	public static String Nombre=""; //Nombre. Está a elección del usuario
+	
+	
+	//static Object inputter=new Object();
+	//static Hashtable<String, String>cha=new Hashtable<>();
 	
 	/*public static void chSave() { // Lo que hace esta función es guardar y cargar información del héroe al programa
 		File saveSlot=new File(player.Nombre+".txt");
@@ -98,9 +101,6 @@ public class Main { //Por qué Eclipse marca esta parte como instrucción perdid
 	public static void main(String[] args)throws IOException, ClassNotFoundException {
 		BufferedReader baptism=new BufferedReader(new InputStreamReader(System.in));
 		
-		villano.setBolso(tbell.fairyNames.length); //Decidí inicializar el valor del bolso en el método main porque intentar hacerlo en la clase Mago llamando a .length en fairyNames (Clase Hada) arrojaba NullPointerException
-		System.out.println(villano.Bolso);
-		
 		System.out.print("¡Necesitamos tu ayuda!"
 				+"\nEl malvado "+villano.Nombre+" ha capturado a "
 				+villano.Bolso+" hadas para usar su polvo y ser más poderoso."
@@ -109,8 +109,8 @@ public class Main { //Por qué Eclipse marca esta parte como instrucción perdid
 				+"¡hasta llamará a su ogro para que te ataque!"
 				);
 		System.out.print("\n\nPero antes de que partamos, ¿cómo te llamas? ");
-		player.Nombre=baptism.readLine();
-		System.out.println();
+		Nombre=baptism.readLine();
+		System.out.println("\nBienvenid@, "+Nombre+"\n");
 		//chSave();
 		
 		while(match.looper.equalsIgnoreCase("Sí")||match.looper.equalsIgnoreCase("Si")) {
