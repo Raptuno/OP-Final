@@ -109,16 +109,38 @@ public class Game{
 			
 			
 			switch (action) {
+			//Atacar
 			case "atacar":
 				attack();
 				break;
+			case "1":
+				attack();
+				break;
+			//Fin atacar
+				
+			//Defender
 			case "defender":
 				defend();
 				break;
+			case "2":
+				defend();
+				break;
+			//Fin Defender
+				
+			//Construir
 			case "construir":
 				build();
 				break;
+			case "3":
+				build();
+				break;
+			//Fin construir
+			
+			//Salvar
 			case "salvar":
+				save();
+				break;
+			case "4":
 				save();
 				break;
 			default:
