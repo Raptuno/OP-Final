@@ -99,11 +99,11 @@ public class Main { //Por qué Eclipse marca esta parte como instrucción perdid
 	*/
 	
 	public static void main(String[] args)throws IOException, ClassNotFoundException {
+		villano.Bolso=villano.fetch.nextInt(100);
 		BufferedReader baptism=new BufferedReader(new InputStreamReader(System.in));
 		
 		System.out.print("¡Necesitamos tu ayuda!"
-				+"\nEl malvado "+villano.Nombre+" ha capturado a "
-				+villano.Bolso+" hadas para usar su polvo y ser más poderoso."
+				+"\nal malvado "+villano.Nombre+" le gusta secuestrar hadas para usar su polvo y ser más poderoso."
 				+"\nDebes ayudar a las hadas a escapar y esconderse en la aldea. Pero ten cuidado, "
 				+villano.Nombre+" intentará hacer de todo para que no lo derrotes,"
 				+"¡hasta llamará a su ogro para que te ataque!"
@@ -113,6 +113,7 @@ public class Main { //Por qué Eclipse marca esta parte como instrucción perdid
 		System.out.println("\nBienvenid@, "+Nombre+"\n");
 		//chSave();
 		
+		System.out.println("\n\nDebes salvar "+villano.getBolso()+" hadas");
 		while(match.looper.equalsIgnoreCase("Sí")||match.looper.equalsIgnoreCase("Si")) {
 			match.gameOn();
 		}

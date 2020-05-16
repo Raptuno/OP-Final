@@ -21,7 +21,7 @@ public class Mago {
 	public Hada Hada;
 	public Heroe Heroe;
 	
-	public int Bolso=fetch.nextInt(100); //Bolso de hadas del mago
+	public int Bolso=0; //Bolso de hadas del mago
 	public String Nombre="Drelas"; //Nombre del mago. Tomé el nombre prestado de un NPC en Skyrim
 	public int Poder=fetch.nextInt(10)+1; //Fuerza de ataque del mago
 	public int Vida=100; //Vida del mago

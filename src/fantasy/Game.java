@@ -15,6 +15,10 @@ public class Game{
 	public String looper="Sí";
 	public int gameOverStatus;
 	
+	void init() {
+		villano.setBolso(villano.fetch.nextInt(100));
+	}
+	
 	void attack() throws IOException{
 		
 		System.out.println("¿A quién queres atacar? ");
@@ -37,39 +41,38 @@ public class Game{
 			player.setVida(player.getVida()-Shrek.getPoder());
 			villano.setBolso(villano.getBolso()+1);
 		}
-		
-		System.out.println(
-				"Estadísticas del juego:"
-				+"\n\tPuntos de salud del jugador: "+player.getVida()
-				+"\n\tPuntos de salud del mago: "+villano.getVida()
-				+"\n\tHadas por rescatar: "+villano.getBolso()
-				);
 	}
 	
 	void defend() {
-		System.out.println(
-				"Defiendes el ataque del ogro, pero "+villano.Nombre);
+		System.out.print(
+				"\nDefiendes el ataque del ogro, pero "+villano.Nombre);
 		
 		if(villano.getVida()+3<100) {
 			villano.setVida(villano.getVida()+3);
-			System.out.print(" tiene oportunidad de curarse y recupera 3 puntos de salud");
-		} else {
+			System.out.print(" tiene oportunidad de curarse y recupera 3 puntos de salud\n");
+		} else if (villano.getVida()+3<100&&dland.getHadas()>1){
+			dland.setHadas(dland.getHadas()-1);
 			villano.setBolso(villano.getBolso()+1);
-			System.out.print(" aprovechó que estaba completamente curado y secuestró un hada");
+			System.out.print(" aprovechó que estaba completamente curado y secuestró un hada\n");
+		} else {
+			System.out.print(" vió que no tenías hadas y que estaba curado, así que te atacó por la espalda y pierdes "+villano.getPoder()+" puntos de salud\n\n");
+			player.setVida(player.getVida()-villano.getPoder());
 		}
-		System.out.println(
-				"Estadísticas del juego:"
-				+"\n\tPuntos de salud del jugador: "+player.getVida()
-				+"\n\tPuntos de salud del mago: "+villano.getVida()
-				);
 	}
 	
 	void build() {
-		
+		dland.setCasas(dland.getCasas()+1);
 	}
 	
-	void save() {
+	public void save() {
+		villano.setBolso(villano.getBolso()-1);
 		tbell.salve();
+		dland.setHadas(dland.getHadas()+1);
+		if (dland.Hadas%10==0) {
+			build();
+			System.out.println("Tienes un número de hadas que es múltiplo de 10, por lo que una casa nueva se construyó automáticamente");
+		}
+		
 	}
 	
 	int getGOS() {
@@ -93,7 +96,7 @@ public class Game{
 	}
 	
 	public void gameOn() throws IOException{
-		
+		init();
 		BufferedReader play=new BufferedReader(new InputStreamReader(System.in));
 		
 		while (looper.equalsIgnoreCase("Sí")||looper.equalsIgnoreCase("Si")) {
@@ -104,6 +107,7 @@ public class Game{
 							+"\n\t3. Construir una casa (construir)"
 							+"\n\t4. Salvar un hada (salvar)"
 					);
+			System.out.println("Hadas por salvar+ "+villano.getBolso());
 			String action=play.readLine().toLowerCase();
 			System.out.println("Acción: "+action);
 			
@@ -143,10 +147,18 @@ public class Game{
 			case "4":
 				save();
 				break;
+			//Fin salvar
 			default:
 				System.out.println("¿Qué clase de magia es ésta?");
 				break;
 			}
+			System.out.println(
+					"Estadísticas del juego:"
+					+"\n\tPuntos de salud del jugador: "+player.getVida()
+					+"\n\tPuntos de salud del mago: "+villano.getVida()
+					+"\n\tHadas salvadas: "+dland.getHadas()
+					+"\n\tHadas por rescatar: "+villano.getBolso()
+					);
 			if(player.getVida()>0||villano.getVida()>0) {
 				System.out.println("¿Jugar de nuevo? ");
 				looper=play.readLine();

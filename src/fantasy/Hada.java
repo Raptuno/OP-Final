@@ -58,8 +58,6 @@ public class Hada {
 	}
 
 	public void Volar(){
-		for(int i=0; i<2; i++) {
-			
-		}
+		Villa.setHadas(Villa.getHadas()+1);
 	}
 }//end Hada

@@ -10,7 +10,7 @@ package fantasy;
 public class Villa {
 
 	public int Hadas=0;
-	public int Casas=Hadas;
+	public int Casas;
 	Heroe Heroe=new Heroe();
 	
 	//Inicia Declaración Getters/Setters
