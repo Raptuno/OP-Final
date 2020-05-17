@@ -20,7 +20,7 @@ public class Main { //Por qué Eclipse marca esta parte como instrucción perdid
 	public static String Nombre=""; //Nombre. Está a elección del usuario
 
 	
-	void attack() throws IOException{
+	static void attack() throws IOException{
 		
 		System.out.println("¿A quién queres atacar? ");
 		BufferedReader attPick=new BufferedReader(new InputStreamReader(System.in));
@@ -45,7 +45,7 @@ public class Main { //Por qué Eclipse marca esta parte como instrucción perdid
 		}
 	}
 	
-	void defend() {
+	static void defend() {
 		System.out.print(
 				"\nDefiendes el ataque del ogro, pero "+villano.Nombre);
 		
@@ -62,11 +62,11 @@ public class Main { //Por qué Eclipse marca esta parte como instrucción perdid
 		}
 	}
 	
-	void build() {
+	static void build() {
 		dland.setCasas(dland.getCasas()+1);
 	}
 	
-	public void save() {
+	static void save() {
 		tbell.salve();
 		dland.setHadas(dland.getHadas()+1);
 		if (dland.Hadas%10==0) {
@@ -90,7 +90,7 @@ public class Main { //Por qué Eclipse marca esta parte como instrucción perdid
 		System.out.println("\nBienvenid@, "+Nombre+"\n");
 		
 		System.out.println("\n\nDebes salvar "+villano.getBolso()+" hadas");
-		while (villano.getBolso()>0) {
+		while (villano.getBolso()>0||villano.getVida()>0||player.getVida()>0) {
 			BufferedReader play=new BufferedReader(new InputStreamReader(System.in));
 			System.out.println(
 					"Tienes 4 opciones: "
