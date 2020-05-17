@@ -68,6 +68,7 @@ public class Main { //Por qué Eclipse marca esta parte como instrucción perdid
 	
 	static void save() {
 		tbell.salve();
+		villano.setBolso(villano.getBolso()-1);
 		dland.setHadas(dland.getHadas()+1);
 		if (dland.Hadas%10==0) {
 			build();
@@ -151,6 +152,12 @@ public class Main { //Por qué Eclipse marca esta parte como instrucción perdid
 					+"\n\tHadas salvadas: "+dland.getHadas()
 					+"\n\tHadas por rescatar: "+villano.getBolso()
 					);
+			if(villano.getBolso()<1||villano.getVida()<1) {
+				System.out.println("Derrotaste a "+villano.Nombre+" ¡Muchas gracias!");
+				break;
+			} else if (player.getVida()<1) {
+				
+			}
 		}
 	}
 }
