@@ -17,89 +17,66 @@ public class Main { //Por qué Eclipse marca esta parte como instrucción perdid
 	static Mago villano=new Mago();
 	static Hada tbell=new Hada();
 	static Villa dland=new Villa();
-	static Game match=new Game();
-	
 	public static String Nombre=""; //Nombre. Está a elección del usuario
+
 	
-	
-	//static Object inputter=new Object();
-	//static Hashtable<String, String>cha=new Hashtable<>();
-	
-	/*public static void chSave() { // Lo que hace esta función es guardar y cargar información del héroe al programa
-		File saveSlot=new File(player.Nombre+".txt");
+	void attack() throws IOException{
 		
-		if(saveSlot.exists()) {
-			System.out.println("¡Bienvenid@ de vuelta, "
-					+player.Nombre
-					+"!\n\nComo pudiste ver, "
-					+villano.Nombre
-					+" simplemente no aprende que no debe estar secuestrando hadas. "
-					+"\n¡Ya hasta se consigió otro ogro, ¿cómo ves?!"
-					+"\nPor supuesto debes derrotarlo otra vez, pero personalmente no creo que aprenda..."
-					+"\n\nTu fuerza de ataque: "+player.getPoder()
+		System.out.println("¿A quién queres atacar? ");
+		BufferedReader attPick=new BufferedReader(new InputStreamReader(System.in));
+		String attNit=attPick.readLine();
+		
+		if(attNit.equalsIgnoreCase(villano.Nombre)) {
+			System.out.println(
+					"Atacaste a "+villano.Nombre+" y perdió "+player.getPoder()+" puntos de salud"
+					+" pero su ogro te ataca y pierdes 10 punto de salud"
 					);
-			
-			if (saveSlot.length()>0) {
-				try {
-					FileInputStream reader=new FileInputStream(saveSlot);
-					ObjectInputStream sniffer=new ObjectInputStream(reader);
-					cha=(Hashtable<String, String>) sniffer.readObject();
-					sniffer.close();
-					reader.close();
-					System.out.println(cha);
-				} catch (Exception e) {
-					System.out.println(
-							"Algo raro acaba de pasar."
-							+"Busca a un mago llamado Raptuno y muestrale ésto:\n"); e.printStackTrace();
-				}
-			} else {
-				try {
-					System.out.println("¡Espera, necesitas un arma!");
-					FileOutputStream writer=new FileOutputStream(saveSlot);
-					ObjectOutputStream getch=new ObjectOutputStream(writer);
-					
-					player.swordPick(player.swords);
-					cha.put("Nombre", player.Nombre);
-					cha.put("Arma", player.Arma);
-					cha.put("Daño", Integer.toString(player.Ataque));
-					
-					getch.writeObject(cha);
-					getch.close();
-					writer.close();
-					System.out.println("Datos cargados con éxito");
-				} catch (Exception e) {
-					System.out.println(
-							"Algo raro acaba de pasar."
-							+"Busca a un mago llamado Raptuno y muestrale ésto:\n"); e.printStackTrace();
-				}
-			}
-		} else {
-			try {
-				System.out.println("Ok");
-				
-				player.swordPick(player.swords);
-				
-				saveSlot.createNewFile();
-				System.out.println("Archivo creado con éxito");
-				cha.put("Nombre", player.Nombre);
-				cha.put("Arma", player.Arma);
-				
-				FileOutputStream writer=new FileOutputStream(saveSlot);
-				ObjectOutputStream getch=new ObjectOutputStream(writer);
-				
-				getch.writeObject(cha);
-				getch.close();
-				writer.close();
-				System.out.println("Datos cargados con éxito");
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
+			villano.setVida(villano.getVida()-player.getPoder());
+			player.setVida(player.getVida()-Shrek.getPoder());
+		} else if(attNit.equalsIgnoreCase("Ogro")) {
+			System.out.println("El ogro y tú se atacan entre sí, haciendo que ambos pierdan "
+					+player.getPoder()+" y "+Shrek.getPoder()+"."
+					+"\nAh, y "+villano.Nombre+" secuestró una hada durante el caos que hicieron"
+					);
+			Shrek.setVida(Shrek.getVida()-player.getPoder());
+			player.setVida(player.getVida()-Shrek.getPoder());
+			dland.setHadas(dland.getHadas()-1);
+			villano.setBolso(villano.getBolso()+1);;
 		}
 	}
-	*/
 	
+	void defend() {
+		System.out.print(
+				"\nDefiendes el ataque del ogro, pero "+villano.Nombre);
+		
+		if(villano.getVida()+3<100) {
+			villano.setVida(villano.getVida()+3);
+			System.out.print(" tiene oportunidad de curarse y recupera 3 puntos de salud\n");
+		} else if (villano.getVida()+3<100&&dland.getHadas()>1){
+			dland.setHadas(dland.getHadas()-1);
+			villano.setBolso(villano.getBolso()+1);;
+			System.out.print(" aprovechó que estaba completamente curado y secuestró un hada\n");
+		} else {
+			System.out.print(" vió que no tenías hadas y que estaba curado, así que te atacó por la espalda y pierdes "+villano.getPoder()+" puntos de salud\n\n");
+			player.setVida(player.getVida()-villano.getPoder());
+		}
+	}
+	
+	void build() {
+		dland.setCasas(dland.getCasas()+1);
+	}
+	
+	public void save() {
+		tbell.salve();
+		dland.setHadas(dland.getHadas()+1);
+		if (dland.Hadas%10==0) {
+			build();
+			System.out.println("Tienes un número de hadas que es múltiplo de 10, por lo que una casa nueva se construyó automáticamente");
+		}
+		
+	}
+
 	public static void main(String[] args)throws IOException, ClassNotFoundException {
-		villano.Bolso=villano.fetch.nextInt(100);
 		BufferedReader baptism=new BufferedReader(new InputStreamReader(System.in));
 		
 		System.out.print("¡Necesitamos tu ayuda!"
@@ -111,11 +88,69 @@ public class Main { //Por qué Eclipse marca esta parte como instrucción perdid
 		System.out.print("\n\nPero antes de que partamos, ¿cómo te llamas? ");
 		Nombre=baptism.readLine();
 		System.out.println("\nBienvenid@, "+Nombre+"\n");
-		//chSave();
 		
 		System.out.println("\n\nDebes salvar "+villano.getBolso()+" hadas");
-		while(match.looper.equalsIgnoreCase("Sí")||match.looper.equalsIgnoreCase("Si")) {
-			match.gameOn();
+		while (villano.getBolso()>0) {
+			BufferedReader play=new BufferedReader(new InputStreamReader(System.in));
+			System.out.println(
+					"Tienes 4 opciones: "
+							+"\n\t1. Atacar al mago/ogro (atacar)"
+							+"\n\t2. Defenderte de ataques del ogro (defender)"
+							+"\n\t3. Construir una casa (construir)"
+							+"\n\t4. Salvar un hada (salvar)"
+					);
+			System.out.println("Hadas por salvar+ "+villano.getBolso());
+			String action=play.readLine().toLowerCase();
+			System.out.println("Acción: "+action);
+			
+			
+			switch (action) {
+			//Atacar
+			case "atacar":
+				attack();
+				break;
+			case "1":
+				attack();
+				break;
+			//Fin atacar
+				
+			//Defender
+			case "defender":
+				defend();
+				break;
+			case "2":
+				defend();
+				break;
+			//Fin Defender
+				
+			//Construir
+			case "construir":
+				build();
+				break;
+			case "3":
+				build();
+				break;
+			//Fin construir
+			
+			//Salvar
+			case "salvar":
+				save();
+				break;
+			case "4":
+				save();
+				break;
+			//Fin salvar
+			default:
+				System.out.println("¿Qué clase de magia es ésta?");
+				break;
+			}
+			System.out.println(
+					"Estadísticas del juego:"
+					+"\n\tPuntos de salud del jugador: "+player.getVida()
+					+"\n\tPuntos de salud del mago: "+villano.getVida()
+					+"\n\tHadas salvadas: "+dland.getHadas()
+					+"\n\tHadas por rescatar: "+villano.getBolso()
+					);
 		}
 	}
 }
