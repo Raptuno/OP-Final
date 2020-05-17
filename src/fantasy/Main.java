@@ -100,7 +100,7 @@ public class Main { //Por qué Eclipse marca esta parte como instrucción perdid
 							+"\n\t3. Construir una casa (construir)"
 							+"\n\t4. Salvar un hada (salvar)"
 					);
-			System.out.println("Hadas por salvar+ "+villano.getBolso());
+			System.out.print("¿Qué quieres hacer? ");
 			String action=play.readLine().toLowerCase();
 			System.out.println("Acción: "+action);
 			
@@ -156,7 +156,8 @@ public class Main { //Por qué Eclipse marca esta parte como instrucción perdid
 				System.out.println("Derrotaste a "+villano.Nombre+" ¡Muchas gracias!");
 				break;
 			} else if (player.getVida()<1) {
-				
+				System.out.println("Fuiste derrotado, ¡estamos condenados!");
+				break;
 			}
 		}
 	}
