@@ -5,7 +5,6 @@ package fantasy;
  */
 
 import java.io.*;
-import java.util.*;
 
 public class Main { //Por qué Eclipse marca esta parte como instrucción perdida?
 	
